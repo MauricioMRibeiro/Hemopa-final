@@ -24,7 +24,7 @@ class _TelaLoginState extends State<TelaLogin> {
   User user;
 
   //static const _baseUrl = 'https://hemopa-app-default-rtdb.firebaseio.com/';
-  static const _baseUrl = 'https://hemopa-app1-default-rtdb.firebaseio.com/';
+  static const _baseUrl = 'https://hemopa-final-default-rtdb.firebaseio.com/';
   final Map<String, String> _formdata = {};
 
   // ignore: missing_return
@@ -147,8 +147,8 @@ class _TelaLoginState extends State<TelaLogin> {
                 final response = await http.get("$_baseUrl/user.json");
                 //var teste =  User.fromJson(json.decode(response.body)['user']);
                 Map teste = json.decode(response.body);
-                // print("Senha:" + _senhadigitada);
-                // print("Email:" + _emaildigitado);
+                 print("Senha:" + _senhadigitada);
+                 print("Email:" + _emaildigitado);
                 // print(teste.values.elementAt(0)['email'] + " email logado : " + teste.values.elementAt(0)['email']);
                 // Percorre lista de usuarios cadastrados
 

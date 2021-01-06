@@ -6,7 +6,7 @@ import 'package:http/http.dart' as http;
 
 class Users with ChangeNotifier {
   //static const _baseUrl = 'https://hemopa-app-default-rtdb.firebaseio.com/';
-  static const _baseUrl = 'https://hemopa-app1-default-rtdb.firebaseio.com/';
+  static const _baseUrl = 'https://hemopa-final-default-rtdb.firebaseio.com/';
   final Map<String, User> _items = {...DUMMY_USERS};
 
   List<User> get all {

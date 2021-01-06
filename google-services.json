@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "874994166577",
+    "project_id": "hemopa-final",
+    "storage_bucket": "hemopa-final.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:874994166577:android:797533cfb523b2c4049e10",
+        "android_client_info": {
+          "package_name": "io.hemopa.doador"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "874994166577-suckf9ur2dnr06kf7mpiead2458jh0nh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYHmMROqZTf9lJrTjIVq-kIB-HGeRkQYw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "874994166577-suckf9ur2dnr06kf7mpiead2458jh0nh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

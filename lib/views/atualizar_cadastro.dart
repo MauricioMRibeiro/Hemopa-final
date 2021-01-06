@@ -8,11 +8,16 @@ import 'package:provider/provider.dart';
 
 import 'dados_usuario.dart';
 
-class AtualizarCadastro extends StatelessWidget {
+class AtualizarCadastro extends StatefulWidget {
   final User user;
 
   const AtualizarCadastro({Key key, this.user}) : super(key: key);
 
+  @override
+  _AtualizarCadastroState createState() => _AtualizarCadastroState();
+}
+
+class _AtualizarCadastroState extends State<AtualizarCadastro> {
   @override
   Widget build(BuildContext context) {
     String _nome;
@@ -73,7 +78,7 @@ class AtualizarCadastro extends StatelessWidget {
                 keyboardType: TextInputType.text,
                 obscureText: false,
                 decoration: InputDecoration(
-                  labelText: "Nome: " + user.nome.toUpperCase(),
+                  labelText: "Nome: " + widget.user.nome.toUpperCase(),
                   border: OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.black)),
                 ),
@@ -99,7 +104,7 @@ class AtualizarCadastro extends StatelessWidget {
                 keyboardType: TextInputType.number,
                 obscureText: false,
                 decoration: InputDecoration(
-                    labelText: "Nascimento: " + user.datanasc,
+                    labelText: "Nascimento: " + widget.user.datanasc,
                     border: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.black))),
                 style: TextStyle(fontSize: 20),
@@ -123,7 +128,7 @@ class AtualizarCadastro extends StatelessWidget {
                 keyboardType: TextInputType.number,
                 obscureText: false,
                 decoration: InputDecoration(
-                    labelText: 'CPF: ' + user.cpf,
+                    labelText: 'CPF: ' + widget.user.cpf,
                     border: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.black))),
                 style: TextStyle(fontSize: 20),
@@ -146,7 +151,7 @@ class AtualizarCadastro extends StatelessWidget {
                 keyboardType: TextInputType.number,
                 obscureText: false,
                 decoration: InputDecoration(
-                    labelText: 'RG: ' + user.rg,
+                    labelText: 'RG: ' + widget.user.rg,
                     border: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.black))),
                 style: TextStyle(fontSize: 20),
@@ -166,7 +171,7 @@ class AtualizarCadastro extends StatelessWidget {
                 keyboardType: TextInputType.emailAddress,
                 obscureText: false,
                 decoration: InputDecoration(
-                    labelText: 'E-mail: ' + user.email,
+                    labelText: 'E-mail: ' + widget.user.email,
                     border: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.black))),
                 style: TextStyle(fontSize: 20),
@@ -186,7 +191,7 @@ class AtualizarCadastro extends StatelessWidget {
                 keyboardType: TextInputType.number,
                 obscureText: false,
                 decoration: InputDecoration(
-                    labelText: 'CEP: ' + user.cep,
+                    labelText: 'CEP: ' + widget.user.cep,
                     border: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.black))),
                 style: TextStyle(fontSize: 20),
@@ -200,7 +205,7 @@ class AtualizarCadastro extends StatelessWidget {
                 keyboardType: TextInputType.text,
                 obscureText: false,
                 decoration: InputDecoration(
-                    labelText: 'Endereço:' + user.endereco,
+                    labelText: 'Endereço:' + widget.user.endereco,
                     border: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.black))),
                 style: TextStyle(fontSize: 20),
@@ -210,7 +215,7 @@ class AtualizarCadastro extends StatelessWidget {
                 keyboardType: TextInputType.number,
                 obscureText: false,
                 decoration: InputDecoration(
-                    labelText: 'Nº:' + user.numero,
+                    labelText: 'Nº:' + widget.user.numero,
                     border: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.black))),
                 style: TextStyle(fontSize: 20),
@@ -220,7 +225,7 @@ class AtualizarCadastro extends StatelessWidget {
                 keyboardType: TextInputType.text,
                 obscureText: false,
                 decoration: InputDecoration(
-                    labelText: 'Bairro: ' + user.bairro,
+                    labelText: 'Bairro: ' + widget.user.bairro,
                     border: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.black))),
                 style: TextStyle(fontSize: 20),
@@ -230,7 +235,7 @@ class AtualizarCadastro extends StatelessWidget {
                 keyboardType: TextInputType.text,
                 obscureText: false,
                 decoration: InputDecoration(
-                    labelText: 'Cidade: ' + user.cidade,
+                    labelText: 'Cidade: ' + widget.user.cidade,
                     border: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.black))),
                 style: TextStyle(fontSize: 20),
@@ -240,7 +245,7 @@ class AtualizarCadastro extends StatelessWidget {
                 keyboardType: TextInputType.text,
                 obscureText: false,
                 decoration: InputDecoration(
-                    labelText: 'Estado: ' + user.uf,
+                    labelText: 'Estado: ' + widget.user.uf,
                     border: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.black))),
                 style: TextStyle(fontSize: 20),
@@ -250,7 +255,7 @@ class AtualizarCadastro extends StatelessWidget {
                 keyboardType: TextInputType.number,
                 obscureText: false,
                 decoration: InputDecoration(
-                    labelText: 'Celular: ' + user.celular,
+                    labelText: 'Celular: ' + widget.user.celular,
                     border: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.black))),
                 style: TextStyle(fontSize: 20),
@@ -264,7 +269,7 @@ class AtualizarCadastro extends StatelessWidget {
                 keyboardType: TextInputType.number,
                 obscureText: false,
                 decoration: InputDecoration(
-                    labelText: 'Telefone: ' + user.telefone,
+                    labelText: 'Telefone: ' + widget.user.telefone,
                     border: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.black))),
                 style: TextStyle(fontSize: 20),
@@ -310,7 +315,7 @@ class AtualizarCadastro extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => DadosUsuario(user: user)))
+                              builder: (context) => DadosUsuario(user: widget.user)))
                     },
                   ),
                 ),
