@@ -3,10 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:hemopa_app/models/user.dart';
 // ignore: unused_import
 import 'package:hemopa_app/routes/app_routes.dart';
+import 'package:hemopa_app/views/agendamento_doacao.dart';
 // ignore: unused_import
 import 'package:provider/provider.dart';
 
 class MeusAgendamentos extends StatelessWidget {
+  final User user;
+  const MeusAgendamentos({Key key, this.user}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,7 +47,7 @@ class MeusAgendamentos extends StatelessWidget {
                         size: 30,
                       ),
                       Text(
-                        'Data: ',
+                        'Data: ' + user.cpf,
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
@@ -56,7 +60,7 @@ class MeusAgendamentos extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Hora: ',
+                        'Hora: ' + user.nome,
                         style: TextStyle(
                           fontSize: 18,
                           //fontWeight: FontWeight.bold,
@@ -64,7 +68,7 @@ class MeusAgendamentos extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        'Unidade: ',
+                        'Unidade: ' + user.nome,
                         style: TextStyle(
                           fontSize: 18,
                           //fontWeight: FontWeight.bold,

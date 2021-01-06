@@ -84,7 +84,7 @@ class _DropDownState extends State<AgendamentoDoacao> {
 
   criaDropDownButton() {
     return Container(
-      padding: EdgeInsets.all(25),
+      padding: EdgeInsets.all(0),
       alignment: Alignment.center,
       child: Column(
         children: <Widget>[
@@ -106,7 +106,7 @@ class _DropDownState extends State<AgendamentoDoacao> {
             textAlign: TextAlign.center,
           ),
           SizedBox(
-            height: 10,
+            height: 5,
           ),
           DropdownButton<String>(
             //dropdownColor: Color.fromARGB(255, 255, 50, 0),
@@ -141,7 +141,7 @@ class _DropDownState extends State<AgendamentoDoacao> {
             textAlign: TextAlign.center,
           ),
           SizedBox(
-            height: 10,
+            height: 5,
           ),
           DropdownButton<String>(
             //dropdownColor: Color.fromARGB(255, 255, 50, 0),
@@ -167,7 +167,7 @@ class _DropDownState extends State<AgendamentoDoacao> {
 
           ),
           SizedBox(
-            height: 10,
+            height: 5,
           ),
           Text(
             "Data: ",
@@ -202,7 +202,7 @@ class _DropDownState extends State<AgendamentoDoacao> {
             },
           ),
           SizedBox(
-            height: 10,
+            height: 5,
           ),
           Text(
             "Horário:",
@@ -229,12 +229,13 @@ class _DropDownState extends State<AgendamentoDoacao> {
               _dropDownHorarioSelected(novoHorarioSelecionado);
               setState(() {
                 this._horarioSelecionado = novoHorarioSelecionado;
+
               });
             },
             value: _horarioSelecionado,
           ),
           SizedBox(
-            height: 10,
+            height: 5,
           ),
           Container(
             decoration: BoxDecoration(

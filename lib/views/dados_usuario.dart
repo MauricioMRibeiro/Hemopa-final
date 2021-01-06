@@ -3,6 +3,7 @@ import 'package:hemopa_app/models/user.dart';
 import 'package:hemopa_app/routes/app_routes.dart';
 import 'package:hemopa_app/views/agendamento_doacao.dart';
 import 'package:hemopa_app/views/atualizar_cadastro.dart';
+import 'package:hemopa_app/views/meus_agendamentos.dart';
 import 'package:provider/provider.dart';
 
 class DadosUsuario extends StatelessWidget {
@@ -31,7 +32,7 @@ class DadosUsuario extends StatelessWidget {
                 children: <Widget>[
                   Container(
                     width: 400,
-                    height: 230,
+                    height: 220,
                     color: Colors.redAccent[100],
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -178,7 +179,7 @@ class DadosUsuario extends StatelessWidget {
                         ),
                         Container(
                           width: 350,
-                          height: 70,
+                          height: 60,
                           child: FlatButton(
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(15.0),
@@ -213,11 +214,11 @@ class DadosUsuario extends StatelessWidget {
                           ),
                         ),
                         SizedBox(
-                          height: 15,
+                          height: 10,
                         ),
                         Container(
                           width: 350,
-                          height: 70,
+                          height: 60,
                           child: FlatButton(
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(15.0),
@@ -244,18 +245,20 @@ class DadosUsuario extends StatelessWidget {
                               ],
                             ),
                             onPressed: () => {
-                              Navigator.of(context).pushNamed(
-                                AppRoutes.MEUS_AGENDAMENTOS,
-                              ),
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => MeusAgendamentos(user: user)))
+
                             },
                           ),
                         ),
                         SizedBox(
-                          height: 15,
+                          height: 10,
                         ),
                         Container(
                           width: 350,
-                          height: 70,
+                          height: 60,
                           child: FlatButton(
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(15.0),
@@ -289,11 +292,11 @@ class DadosUsuario extends StatelessWidget {
                           ),
                         ),
                         SizedBox(
-                          height: 15,
+                          height: 10,
                         ),
                         Container(
                           width: 350,
-                          height: 70,
+                          height: 60,
                           child: FlatButton(
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(15.0),
@@ -326,9 +329,6 @@ class DadosUsuario extends StatelessWidget {
                                       builder: (context) => AtualizarCadastro(user: user)))
                             },
                           ),
-                        ),
-                        SizedBox(
-                          height: 15,
                         ),
                       ],
                     ),
