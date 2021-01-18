@@ -275,6 +275,13 @@ class _CadastroState extends State<Cadastro> {
                             obscureText: false,
                             decoration: InputDecoration(labelText: 'Endereço'),
                             style: TextStyle(fontSize: 20),
+                            validator: (value) {
+                              if (value.trim().length <= 30 ||
+                                  value.trim().length >= 5) {
+                                return 'Endereço inválido!';
+                              }
+                              return null;
+                            },
                             onSaved: (value) => _formdata['endereco'] = value,
                           ),
                           TextFormField(
@@ -282,6 +289,13 @@ class _CadastroState extends State<Cadastro> {
                             obscureText: false,
                             decoration: InputDecoration(labelText: 'Nº'),
                             style: TextStyle(fontSize: 20),
+                            validator: (value) {
+                              if (value.trim().length <= 5 ||
+                                  value.trim().length >= 1) {
+                                return 'número inválido!';
+                              }
+                              return null;
+                            },
                             onSaved: (value) => _formdata['numero'] = value,
                           ),
                           TextFormField(
@@ -289,6 +303,13 @@ class _CadastroState extends State<Cadastro> {
                             obscureText: false,
                             decoration: InputDecoration(labelText: 'Bairro'),
                             style: TextStyle(fontSize: 20),
+                            validator: (value) {
+                              if (value.trim().length <= 20 ||
+                                  value.trim().length >= 5) {
+                                return 'Bairro inválido!';
+                              }
+                              return null;
+                            },
                             onSaved: (value) => _formdata['bairro'] = value,
                           ),
                           TextFormField(
@@ -296,13 +317,26 @@ class _CadastroState extends State<Cadastro> {
                             obscureText: false,
                             decoration: InputDecoration(labelText: 'Cidade'),
                             style: TextStyle(fontSize: 20),
+                            validator: (value) {
+                              if (value.trim().length <= 30 ||
+                                  value.trim().length >= 3) {
+                                return 'Cidade inválida!';
+                              }
+                              return null;
+                            },
                             onSaved: (value) => _formdata['cidade'] = value,
                           ),
                           TextFormField(
                             keyboardType: TextInputType.text,
                             obscureText: false,
-                            decoration: InputDecoration(labelText: 'Estado'),
+                            decoration: InputDecoration(labelText: 'UF'),
                             style: TextStyle(fontSize: 20),
+                            validator: (value) {
+                              if (value.trim().length == 2) {
+                                return 'UF inválida!';
+                              }
+                              return null;
+                            },
                             onSaved: (value) => _formdata['uf'] = value,
                           ),
                           TextFormField(
