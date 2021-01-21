@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:date_format/date_format.dart';
+
 import 'package:hemopa_app/models/user.dart';
 
 
 class AgendamentoDoacao extends StatefulWidget {
 
   final User user;
+
   const AgendamentoDoacao({Key key, this.user}) : super(key: key);
 
   @override
@@ -13,6 +15,10 @@ class AgendamentoDoacao extends StatefulWidget {
 }
 
 class _DropDownState extends State<AgendamentoDoacao> {
+  DateTime data;
+  String hora;
+  String local;
+
   String nomeUnidade = "";
   var _unidades = [
     'Batista Campos',
@@ -126,8 +132,11 @@ class _DropDownState extends State<AgendamentoDoacao> {
                 setState(() {
                   this._tipoSangueSelecionado = novoItemSelecionado;
                 });
+
               },
+
               value: _tipoSangueSelecionado),
+
           SizedBox(
             height: 5,
           ),
@@ -160,15 +169,19 @@ class _DropDownState extends State<AgendamentoDoacao> {
               _dropDownItemSelected(novoItemSelecionado);
               setState(() {
                 this._unidadeSelecionada = novoItemSelecionado;
+                local = _unidadeSelecionada;
               });
             },
 
             value: _unidadeSelecionada,
 
           ),
+
+
           SizedBox(
             height: 5,
           ),
+
           Text(
             "Data: ",
             style: TextStyle(
@@ -191,15 +204,18 @@ class _DropDownState extends State<AgendamentoDoacao> {
               final dtPick = await showDatePicker(
                   context: context,
                   initialDate: new DateTime.now(),
-                  firstDate: new DateTime(1900),
+                  firstDate: new DateTime.now(),
                   lastDate: new DateTime(2100));
 
               if (dtPick != null && dtPick != _data) {
                 setState(() {
-                  _data = dtPick;
+                  data =  _data = dtPick;
+                  print("Data:" + '${formatDate(data, [dd, '-', mm, '-', yyyy])}');
                 });
               }
+
             },
+
           ),
           SizedBox(
             height: 5,
@@ -229,11 +245,13 @@ class _DropDownState extends State<AgendamentoDoacao> {
               _dropDownHorarioSelected(novoHorarioSelecionado);
               setState(() {
                 this._horarioSelecionado = novoHorarioSelecionado;
-
+                print("Horario:" + _horarioSelecionado);
+                hora = _horarioSelecionado;
               });
             },
             value: _horarioSelecionado,
           ),
+
           SizedBox(
             height: 5,
           ),
@@ -244,6 +262,7 @@ class _DropDownState extends State<AgendamentoDoacao> {
                 Radius.circular(8),
               ),
             ),
+
             height: 40,
             width: 200,
             child: FlatButton(
@@ -257,7 +276,10 @@ class _DropDownState extends State<AgendamentoDoacao> {
                 textAlign: TextAlign.center,
               ),
               onPressed: () => {
+
+                printer(hora,data,local),
                 Navigator.pop(context)
+
               },
             ),
           ),
@@ -280,5 +302,10 @@ class _DropDownState extends State<AgendamentoDoacao> {
     setState(() {
       this._tipoSangueSelecionado = novoTipo;
     });
+  }
+  void printer(String hora,DateTime data,String local) {
+    print("Data:" + '${formatDate(data, [dd, '-', mm, '-', yyyy])}');
+    print("Hora:" + hora);
+    print("Local:" + local);
   }
 }

@@ -22,7 +22,7 @@ class User {
   final String bairro;
   final String sexo;
   final String celular;
-  final String datadoacao;
+  final DateTime datadoacao;
   final String horadoacao;
   final String unidadedoacao;
 
