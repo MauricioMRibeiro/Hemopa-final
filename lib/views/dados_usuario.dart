@@ -326,7 +326,7 @@ class DadosUsuario extends StatelessWidget {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => AtualizarCadastro(user: user)))
+                                      builder: (context) => MeusAgendamentos(user: user)))
                             },
                           ),
                         ),
