@@ -6,6 +6,8 @@ import 'package:hemopa_app/models/user.dart';
 import 'package:hemopa_app/provider/users.dart';
 import 'package:provider/provider.dart';
 import 'package:brasil_fields/brasil_fields.dart';
+import 'package:intl/intl.dart';
+import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 
 class Cadastro extends StatefulWidget {
   @override
@@ -16,6 +18,7 @@ class _CadastroState extends State<Cadastro> {
   final _form = GlobalKey<FormState>();
 
   bool _isLoading = false;
+  final format = DateFormat("dd/MM/yyyy");
 
   String _sexo;
   List _listSexo = ['Feminino', 'Masculino'];
@@ -24,8 +27,10 @@ class _CadastroState extends State<Cadastro> {
 
   // ignore: unused_field
   String _dateConvert;
+  DateTime _vDate;
 
   final Map<String, String> _formdata = {};
+  //final Map<DateTime, DateTime> _formdate = {};
 
   // ignore: unused_element
   void _loadformdata(User user) {
@@ -39,6 +44,7 @@ class _CadastroState extends State<Cadastro> {
     _formdata['senha'] = user.senha;
     //inseri novos dados:
     _formdata['datanasc'] = user.datanasc;
+    //_formdate[_vDate] = user.datanasc;
     _formdata['rg'] = user.rg;
     _formdata['cep'] = user.cep;
     _formdata['cidade'] = user.cidade;
@@ -184,6 +190,29 @@ class _CadastroState extends State<Cadastro> {
                             onSaved: (value) =>
                                 _formdata['datanasc'] = _dateConvert,
                           ),
+                          /* DateTimeField(
+                            format: format,
+                            decoration:
+                                InputDecoration(hintText: 'Data Nasc.:'),
+                            style: TextStyle(fontSize: 18),
+                            onShowPicker: (context, currentValue) async {
+                              final value = await showDatePicker(
+                                context: context,
+                                initialDate: currentValue ?? DateTime.now(),
+                                firstDate: DateTime(1900),
+                                lastDate: DateTime(2100),
+                              );
+                              if (value != null && value != _data) {
+                                setState(() {
+                                  _data = value;
+                                });
+                              }
+                              return value;
+                            },
+                            validator: (value) =>
+                                value == null ? 'Data Invalida' : null,
+                            onSaved: (value) => _formdate[_vDate] = _data,
+                          ), */
                           DropdownButtonFormField(
                             decoration: InputDecoration(labelText: 'Sexo'),
                             style: TextStyle(fontSize: 18),

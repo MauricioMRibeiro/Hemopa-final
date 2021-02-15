@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+//import 'package:hemopa_app/provider/requestStatus.dart';
 import 'package:hemopa_app/data/dummy_Users.dart';
 import 'package:hemopa_app/models/user.dart';
 import 'package:http/http.dart' as http;
@@ -121,4 +122,145 @@ class Users with ChangeNotifier {
       notifyListeners();
     }
   }
+
+  /*
+  class Users with ChangeNotifier {
+  static const _dartSUrl = ''https://hemopa-final-default-rtdb.firebaseio.com/';
+  static final _headers = {'Content-Type': 'application/json'};
+
+  HttpRequestStatus httpRequestStatus = HttpRequestStatus.NOT_DONE;
+
+  Future<List<User>> readDoadores() async {
+    final response = await http.get(_dartSUrl);
+    print(response.body);
+    List responseJson = json.decode(response.body.toString());
+    List<User> userList = createDoadoresList(responseJson);
+    return userList;
+  }
+
+  List<User> createDoadoresList(List data) {
+    List<User> list = new List();
+
+    for (int i = 0; i < data.length; i++) {
+      int id = data[i]["id"];
+      String cpf = data[i]["cpf"];
+      String nome = data[i]["nome"];
+      DateTime datanasc = data[i]["datanasc"];
+      String sexo = data[i]["sexo"];
+      String telefone = data[i]["telefone"];
+      String celular = data[i]["celular"];
+      String email = data[i]["email"];
+      String senha = data[i]["senha"];
+      Doador doador = new Doador(
+          id: id,
+          cpf: cpf,
+          nome: nome,
+          datanasc: datanasc,
+          sexo: sexo,
+          telefone: telefone,
+          celular: celular,
+          email: email,
+          senha: senha);
+      list.add(doador);
+    }
+    return list;
+  }
+
+  //criar user doador:
+  Future createDoador(User user) async {
+    httpRequestStatus = HttpRequestStatus.NOT_DONE;
+    final response = await http.post(_dartSUrl,
+        headers: _headers,
+        body: json.encode({
+          'cpf': user.cpf,
+          'nome': user.nome,
+          'datanasc': user.datanasc,
+          'sexo': user.sexo,
+          'telefone': user.telefone,
+          'celular': user.celular,
+          'email': user.email,
+          'senha': user.senha
+        }));
+    if (response.statusCode == 200) {
+      print(response.body.toString());
+      httpRequestStatus = HttpRequestStatus.DONE;
+    } else {
+      httpRequestStatus = HttpRequestStatus.ERROR;
+    }
+
+    return httpRequestStatus;
+  }
+
+  //deleta user doador:
+  Future deleteDoador(int id) async {
+    httpRequestStatus = HttpRequestStatus.NOT_DONE;
+    final url = '$_dartSUrl/$id';
+    final response = await http.delete(url, headers: _headers);
+    if (response.statusCode == 200) {
+      print(response.body.toString());
+      httpRequestStatus = HttpRequestStatus.DONE;
+    } else {
+      httpRequestStatus = HttpRequestStatus.ERROR;
+    }
+    return httpRequestStatus;
+  }
+
+  // atualiza user Doador:
+  /* Future updateDoador(User user) async {
+    httpRequestStatus = HttpRequestStatus.NOT_DONE;
+    final url = '$_dartSUrl/$user.id';
+    final response = await http.put(url,
+        headers: _headers,
+        body: json.encode({
+          'cpf': user.cpf,
+          'nome': user.nome,
+          'datanasc': user.datanasc,
+          'sexo': user.sexo,
+          'telefone': user.telefone,
+          'celular': user.celular,
+          'email': user.email,
+          'senha': user.senha
+        }));
+    if (response.statusCode == 200) {
+      print(response.body.toString());
+      httpRequestStatus = HttpRequestStatus.DONE;
+    } else {
+      httpRequestStatus = HttpRequestStatus.ERROR;
+    }
+  } */
+  Future updateDoador(
+      int id,
+      String cpf,
+      String nome,
+      String datanasc,
+      String sexo,
+      String telefone,
+      String celular,
+      String email,
+      String senha) async {
+    httpRequestStatus = HttpRequestStatus.NOT_DONE;
+    final url = '$_dartSUrl/$id';
+    final response = await http.put(url,
+        headers: _headers,
+        body: json.encode({
+          'cpf': cpf,
+          'nome': nome,
+          'datanasc': datanasc,
+          'sexo': sexo,
+          'telefone': telefone,
+          'celular': celular,
+          'email': email,
+          'senha': senha
+        }));
+    if (response.statusCode == 200) {
+      print(response.body.toString());
+      httpRequestStatus = HttpRequestStatus.DONE;
+    } else {
+      httpRequestStatus = HttpRequestStatus.ERROR;
+    }
+  }
+}
+
+  */
+
 }
